@@ -1,10 +1,10 @@
 var questions = [
     {
-        question: "What are your Career Objectives?",
+        question: "1. What are your Career Objectives?",
         response: ["International Certification", "Job", "Expand my Knowledge"]
     },
     {
-        question: "Are you currently employed?",
+        question: "2. Are you currently employed?",
         response: ["Yes", "No"]
     },
    {
@@ -45,29 +45,29 @@ for (let index = 0; index < durrell_questions.length; index++) {
     // This line inserts our questions into the html file
     element.innerHTML = questions[index].question;
     element.style.visibility = "hidden";
+    if (element.style.visibility !== "visible") {
+        element.style.visibility = "visible";
+    }
     //for (var i = 0; i < element.length; i++) {
 }
 
 var choices = document.getElementsByClassName('choices');
 for (let index = 0; index < questions.length; index++) {
-    var question = questions[index],
-    response = question.response,
-    content = '';
+    var question = questions[index];
+    response = question.response;
     for (let i = 0; i < response.length; i++) {
         const r = response[i];
         choices[index].innerHTML += '<button class="choice1">' + r + '</button>';
     }
 }
 
+/*
+var buttonEvent = document.getElementsByClassName("next");
+buttonEvent.style.backgroundColor = "black";
+*/
 function onSelection() {
-    var oneQuestion = document.getElementsByClassName("choices");
-    for (var i = 0; i < oneQuestion.length; i++) {
-        if (oneQuestion[i].checked) {
-            durrell_questions.innerHTML = question[0].questions;
-        }
-    }
-    alert("Select response!")
-    return false;
+    var appears = document.getElementById("first");
+    var nextAppearance = appears.nextElementSibling;
+    appears.remove('id');
+    nextAppearance.classList.add('visible');
 }
-
-choices.onclick = onSelection;
