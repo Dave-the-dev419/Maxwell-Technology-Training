@@ -66,8 +66,11 @@ var buttonEvent = document.getElementsByClassName("next");
 buttonEvent.style.backgroundColor = "black";
 */
 function onSelection() {
-    var appears = document.getElementById("first");
-    var nextAppearance = appears.nextElementSibling;
-    appears.remove('id');
-    nextAppearance.classList.add('visible');
+    var appears = document.getElementById("queries");
+    var nextAppearance = appears.childNodes;
+    for (var i = 0; i < nextAppearance.length; i++) {
+        nextAppearance[i].remove('id');
+        nextAppearance[1].classList.add('visible');
+        break;
+    }
 }
