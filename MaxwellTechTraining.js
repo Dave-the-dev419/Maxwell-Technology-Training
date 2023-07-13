@@ -8,32 +8,32 @@ var questions = [
         response: ["Yes", "No"]
     },
    {
-        question: "Do you have any short-term travel plans?",
+        question: "3. Do you have any short-term travel plans?",
         response: ["yes", "no"]
     },
     {
-        question: "How long will your travel last?",
+        question: "4. How long will your travel last?",
         response: ["0-3 months", "3-12 months", "Over a year"]
     },
     {
-        question: "What is your curernt level of formal education?",
+        question: "5. What is your curernt level of formal education?",
         response: ["O' level", "A' level", "Undergraduate degree", "Postgraduate degree"]
     },
     {
-        question: "Does your work schedule permit a rigid time allocation",
+        question: "6. Does your work schedule permit a rigid time allocation",
         response: ["Yes", "No"]
     },
     {
-        question: "What background or skills do you have in I.T? Select all that apply.",
+        question: "7. What background or skills do you have in I.T? Select all that apply.",
         response: ["Microsoft Office", "Design Suites Creative (Adobe, etc)", "Programming", "Digital marketing",
                     "Data Science", "Hardware", "Cyber Security"]
     },
     {
-        question: "How many years of experience do you have in IT?",
+        question: "8. How many years of experience do you have in IT?",
         response: ["1-5", "6-10", "10+"]
     },
     {
-        question: "Do you have any relevant certifications?",
+        question: "9. Do you have any relevant certifications?",
         response: ["Yes", "No"]
     },
 ];
@@ -62,12 +62,21 @@ for (let index = 0; index < questions.length; index++) {
 }
 
 /*
-var buttonEvent = document.getElementsByClassName("next");
-buttonEvent.style.backgroundColor = "black";
-*/
+var buttonChecker = document.getElementsByClassName("choices");
+for (var i = 0; i < buttonChecker.length; i++) {
+    if (buttonChecker[i].Checked) {
+        buttonChecker.style.visibility = "white";
+    }
+}
+alert("Select a response");
+return fals*e;*/
+
 function onSelection() {
-    var appears = document.getElementById("first");
-    var nextAppearance = appears.nextElementSibling;
-    appears.remove('id');
-    nextAppearance.classList.add('visible');
+    var appears = document.getElementById("queries");
+    var nextAppearance = appears.childNodes;
+    for (var i = 0; i < nextAppearance.length; i++) {
+        nextAppearance[i].remove('id');
+        nextAppearance[1].classList.add('visible');
+        break;
+    }
 }
