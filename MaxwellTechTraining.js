@@ -9,7 +9,7 @@ var questions = [
     },
    {
         question: "3. Do you have any short-term travel plans?",
-        response: ["yes", "no"]
+        response: ["Yes", "No"]
     },
     {
         question: "4. How long will your travel last?",
@@ -48,7 +48,6 @@ for (let index = 0; index < durrell_questions.length; index++) {
     if (element.style.visibility !== "visible") {
         element.style.visibility = "visible";
     }
-    //for (var i = 0; i < element.length; i++) {
 }
 
 var choices = document.getElementsByClassName('choices');
@@ -57,26 +56,76 @@ for (let index = 0; index < questions.length; index++) {
     response = question.response;
     for (let i = 0; i < response.length; i++) {
         const r = response[i];
-        choices[index].innerHTML += '<button class="choice1">' + r + '</button>';
+        choices[index].innerHTML += '<button class="choice1" onclick="changeColor(event)">' + r + '</button>';
+        var leftArrow = document.createElement("div");
+        if (choices[i] === choices.lastChild) {
+            document.remove("a")
+        }
     }
 }
 
-/*
-var buttonChecker = document.getElementsByClassName("choices");
-for (var i = 0; i < buttonChecker.length; i++) {
-    if (buttonChecker[i].Checked) {
-        buttonChecker.style.visibility = "white";
-    }
+var navArrow = document.getElementsByClassName("leftArrow");
+for (var i = 0 ; i < choices.length; i++) {
+    //navArrow.style.display = "none";
+    navArrow.innerHTML = choices[i].previousSibling; 
+    console.log(navArrow);
 }
-alert("Select a response");
-return fals*e;*/
 
+var n = 0;
 function onSelection() {
-    var appears = document.getElementById("queries");
-    var nextAppearance = appears.childNodes;
-    for (var i = 0; i < nextAppearance.length; i++) {
-        nextAppearance[i].remove('id');
-        nextAppearance[1].classList.add('visible');
-        break;
+    // Hides the introduction
+    document.getElementById('intro').style.display = 'none';
+
+    // get a list of all questions
+    var appears = document.getElementsByClassName("choices");
+
+    // Makes the nth question visible
+    appears[n].classList.add('visible');
+
+    // Make the nth - 1 question invisible
+    // Only do this if n is greater than 0 (i.e. if we are not on the first question)
+    if(n > 0)
+        appears[n-1].classList.remove('visible');
+    
+    // Increment n
+    n++;
+}
+
+function emailSent() {
+    Email.send({
+        Host : "smtp.gmail.com",
+        Username : "ndecham06@gmail.com",
+        Password : "",
+        To : 'Dave.ndecham001@umb.edu',
+        From : document.getElementById("email").value,
+        Subject : "Maxwell Technologies Training",
+        Body : "Name: "  + document.getElementById("firstName").value
+            + " " + document.getElementById("lastName").value + "  " + 
+            document.getElementById("userQuestions").value
+    })
+}
+
+function changeColor(e) {
+    var clicked = e.target;
+    if (clicked === "") {
+        alert("Please select response")
+        return false;
+    }
+    else {
+        var otherBtns = document.getElementsByClassName("choice1");
+        console.log(otherBtns);
+        clicked.style.backgroundColor = "#fff"; // change background color of target
+        
+        // This loops through the collection of elements and changes their color
+        for (var i = 0; i < otherBtns.length; i++) {
+            otherBtns[i].style.backgroundColor = "#a103039b";
+            otherBtns[i].style.color = "black";  
+            
+            // This code will make sure that the button clicked
+            // doesn't change color
+            if (clicked  !== otherBtns){
+                clicked.style.backgroundColor = "#fff";
+            }
+        }
     }
 }
