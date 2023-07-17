@@ -14,23 +14,21 @@
         </div>
     </nav>
 <div id="queries" class="Queues">
-    <div>
-        <h1>
-            Welcome to Maxwell Technologies Training!
-        </h1>
+    <div id="intro">
+        <h1>Welcome to Maxwell Technologies Training!</h1>
         <p class="instructions">Make sure to answer the questions as needed so you may be placed into
             a program suited to your needs.</p>
     </div>
         <div class="choices" id="first">
             <p class="durrell_questions"></p>
         </div>
-        <div class="choices" id="second">
+        <div class="choices" id="second" onclick="changeColor();">
             <p class="durrell_questions"></p>
         </div>
         <div class="choices" id="third">
             <p class="durrell_questions"></p>
         </div>
-        <div class="choices">
+        <div class="choices" onclick="changeColor();">
             <p class="durrell_questions"></p>
         </div>
         <div class="choices">
@@ -48,11 +46,33 @@
         <div class="choices">
             <p class="durrell_questions"></p>
         </div>
+        <div class="choices">
+            <form onsubmit="emailSent();">
+                <h2>Provide some Information</h2>
+                <input type="text" placeholder="First name" id="firstName" required>
+                <input type="text" placeholder="Last name" id="lastName" required>
+                <input type="email" placeholder="Email" id="eMail" required>
+                <input type="number" placeholder="Phone number" id="phoneNum" required>
+                <textarea type="text"  rows="5" placeholder="Have any questions?" id="userQuestion"></textarea>
+            </form>
+        </div>
+        <div class="choices">
+            <h1>Thanks for your feedback!</h1>
+            <p>We will get back to you shortly</p>
+        </div>
+        <div class="leftArrow">
+            <a>previous</a>
+        </div>
+        <!--<div class="rightArrow">
+            <button></button>
+        </div> -->
         <div>
             <a href="#" class="next" onclick="onSelection();">next</a>
         </div>
+
     <footer class="feet"></footer>
 </div>
 <script src="MaxwellTechTraining.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
