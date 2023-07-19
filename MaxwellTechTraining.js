@@ -51,26 +51,44 @@ for (let index = 0; index < durrell_questions.length; index++) {
 }
 
 var choices = document.getElementsByClassName('choices');
+var choice7 = document.getElementById("longer");
 for (let index = 0; index < questions.length; index++) {
     var question = questions[index];
     response = question.response;
     for (let i = 0; i < response.length; i++) {
         const r = response[i];
-        choices[index].innerHTML += '<button class="choice1" onclick="changeColor(event)">' + r + '</button>';
-        var leftArrow = document.createElement("div");
-        if (choices[i] === choices.lastChild) {
-            document.remove("a")
-        }
+        // const previous = choices[index - 1];
+            if (choices[index].id === "longer") {
+                choice7.innerHTML +=  '<button class="choice2" onclick="selectMany(event);">' + r + '</button>';
+            }   
+            else {
+                choices[index].innerHTML += '<button class="choice1" onclick="changeColor(event);">' + r + '</button>';
+            }    
+    }
+}
+
+for (var index = 0; index < questions.length; index++) {
+    if(choices[index].id !== "first") {
+        choices[index].innerHTML += '<a href="#" class="leftArrow" onclick="rewind();">back</a>';
     }
 }
 
 var navArrow = document.getElementsByClassName("leftArrow");
-for (var i = 0 ; i < choices.length; i++) {
-    //navArrow.style.display = "none";
-    navArrow.innerHTML = choices[i].previousSibling; 
-    console.log(navArrow);
+var lastForm = document.getElementById("intro");
+function rewind() {
+    var i = 0;
+    if (i > 0) {
+        navArrow = choices[i - 1];
+    }
 }
 
+/*
+var i = 0;
+for (i; i < choices.length; i++) { 
+    if (choices[i] >= 1) {
+        navArrow.classList.add("visible");
+    }
+}*/
 var n = 0;
 function onSelection() {
     // Hides the introduction
@@ -81,15 +99,19 @@ function onSelection() {
 
     // Makes the nth question visible
     appears[n].classList.add('visible');
-
-    // Make the nth - 1 question invisible
     // Only do this if n is greater than 0 (i.e. if we are not on the first question)
     if(n > 0)
         appears[n-1].classList.remove('visible');
-    
+
     // Increment n
     n++;
+    
+    if (document.getElementById("final")) {
+        var finalbtn = document.getElementsByClassName("next");
+        console.log(finalbtn);
+    }
 }
+
 
 function emailSent() {
     Email.send({
@@ -107,25 +129,28 @@ function emailSent() {
 
 function changeColor(e) {
     var clicked = e.target;
-    if (clicked === "") {
-        alert("Please select response")
-        return false;
-    }
-    else {
-        var otherBtns = document.getElementsByClassName("choice1");
-        console.log(otherBtns);
-        clicked.style.backgroundColor = "#fff"; // change background color of target
+    var otherBtns = document.getElementsByClassName("choice1");
+    console.log(otherBtns);
+    clicked.style.backgroundColor = "#fff"; // change background color of target
+    
+    // This loops through the collection of elements and changes their color
+    for (var i = 0; i < otherBtns.length; i++) {
+        otherBtns[i].style.backgroundColor = "#a103039b";
+        otherBtns[i].style.color = "black";  
         
-        // This loops through the collection of elements and changes their color
-        for (var i = 0; i < otherBtns.length; i++) {
-            otherBtns[i].style.backgroundColor = "#a103039b";
-            otherBtns[i].style.color = "black";  
-            
-            // This code will make sure that the button clicked
-            // doesn't change color
-            if (clicked  !== otherBtns){
-                clicked.style.backgroundColor = "#fff";
-            }
-        }
+        // This code will make sure that the button clicked
+        // doesn't change color
+        if (clicked  !== otherBtns){
+            clicked.style.backgroundColor = "#fff";
+        }   
     }
+ //   }
+}
+
+// This selects the 7th question and allows
+// the user to select multiple buttons
+function selectMany(c) {
+    var question7 = c.target;
+    console.log(question7);
+    question7.style.backgroundColor = "#fff";
 }
