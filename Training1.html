@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maxwell Cybersecurity</title>
     <link href="style/style.css" rel="stylesheet">
-    <link href="MaxwellCybersecLogo.jpg" rel="icon">
+    <link href="Maxwell_Technologies.jpg" rel="icon">
 </head>
 <body>
     <nav class="banner">
         <div>
-            <img src="MaxwellCybersecLogo.jpg" width="95" height="80">
+            <img src="Maxwell_Technologies.jpg" width="90" height="80">
         </div>
     </nav>
-<div id="queries" class="Queues">
+<div id="queries" class="Queues" onload="disable();">
     <div id="intro">
         <h1>Welcome to Maxwell Technologies Training!</h1>
         <p class="instructions">Make sure to answer the questions as needed so you may be placed into
@@ -22,13 +22,13 @@
         <div class="choices" id="first">
             <p class="durrell_questions"></p>
         </div>
-        <div class="choices" id="second" onclick="changeColor();">
+        <div class="choices" id="second">
             <p class="durrell_questions"></p>
         </div>
         <div class="choices" id="third">
             <p class="durrell_questions"></p>
         </div>
-        <div class="choices" onclick="changeColor();">
+        <div class="choices">
             <p class="durrell_questions"></p>
         </div>
         <div class="choices">
@@ -47,7 +47,7 @@
             <p class="durrell_questions"></p>
         </div>
         <div class="choices">
-            <form onsubmit="emailSent();">
+            <form class="sheet" onsubmit="emailSent();">
                 <h2>Provide some Information</h2>
                 <input type="text" placeholder="First name" id="firstName" required>
                 <input type="text" placeholder="Last name" id="lastName" required>
@@ -56,22 +56,17 @@
                 <textarea type="text"  rows="5" placeholder="Have any questions?" id="userQuestion"></textarea>
             </form>
         </div>
-        <div class="choices">
+        <div class="choices" id="final">
             <h1>Thanks for your feedback!</h1>
             <p>We will get back to you shortly</p>
         </div>
-        <div class="leftArrow">
-            <a>previous</a>
-        </div>
-        <!--<div class="rightArrow">
-            <button></button>
-        </div> -->
         <div>
             <a href="#" class="next" onclick="onSelection();">next</a>
         </div>
-
-    <footer class="feet"></footer>
 </div>
+<!--<div>
+    <footer class="feet">copyright @Maxwell technologies</footer>
+</div> -->
 <script src="MaxwellTechTraining.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
