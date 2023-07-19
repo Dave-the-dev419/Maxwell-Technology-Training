@@ -1,12 +1,11 @@
 html {
-    background: linear-gradient(#c80303bd, #110445);
-    height: 100%;
-    padding-bottom: 20px;
+    background: linear-gradient(#a103039b ,#110445);
+    height: 130%;
 }
 
 body {
     width: 100%;
-    color: #a103039b;
+    color: hsla(0, 96%, 32%, 0.608);
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -19,29 +18,66 @@ h1 {
     padding: 15px;
     border-bottom: 3px solid;
     border-color: #9d00009b;
-    margin-top: -40px;
+    margin-top: -60px;
     vertical-align: text-top;
     font-weight: 600;
-    text-align: center;
-    padding-top: 65px;
+    text-align: left;
+    padding-inline:initial;
+    padding-top: 50px;
+}
+
+textarea {
+    background: #f5f5f5;
+    border: 1px solid;
+    border-radius: 0px;
+    text-align: left;
+    padding: 20px;
+    margin: 15px 0px;
+    width: 100%;
+    font-size: medium;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+input {
+    background: #f5f5f5;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: left;
+    padding: 20px;
+    margin: 15px 0px;
+    width: 100%;
+    font-size: medium;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .Queues {
-    background: #fff;
+    background: white;
     width: 45%;
-    padding-top: 10px;
-    padding-bottom: 35px;
-    padding-inline: 60px;
-    margin: 60px auto;
-    font-size: 16px;
-    text-align: left;
-    border-radius: 10px;
-    box-sizing:border-box;
-    
+    padding: 35px 0px 15px 0;
+    padding-inline: 90px;
+    margin: 30px auto;
+    margin-top: 0px;
+    margin-bottom: 35px;
+    border: 2px  solid black;
 }
 
 #longer {
+    margin-bottom: 10px;
+}
 
+.leftArrow {
+    background-color: #110445;
+    color: white;
+    padding: 10px;
+    margin: -40px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+}
+
+.leftArrow:hover {
+    background-color: white;
+    color: #110445;
 }
 
 .instructions {
@@ -61,13 +97,12 @@ h1 {
 
 .banner {
     background-color: #110445;
-    width: 100%;
+    width: 110%;
     margin: auto;
     margin-top: -10px;
     margin-bottom: 0px;
     margin-left: -10px;
     padding: 1px 0 0;
-    border: 10px solid #110445;
 }
 
 .choices {
@@ -79,20 +114,34 @@ h1 {
     border: 1px solid;
     border-radius: 5px;
     text-align: left;
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
     cursor: pointer;
     width: 100%;
     font-size: medium;
     font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-.choice1:hover {
-    background-color: #ffffff;
-    color: #a103039b
+.choice2 {
+    background:#a103039b;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: left;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    width: 100%;
+    font-size: medium;
+    font-weight: bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
 }
 
-
+.sheet {
+    margin-left: -5px;
+    margin-right: 30px;
+}
 
 .next {
     background-color: #110445;
@@ -100,7 +149,6 @@ h1 {
     padding: 10px;
     width: 100px;
     border: 0;
-    border-radius: 4px 0;
     margin: 10px auto;
     font-weight: 600;
     font-size: 16px;
@@ -116,7 +164,17 @@ h1 {
 .choices {
     display: none;
 }
-
 .choices.visible {
     display: block;
+}
+
+.feet {
+    background: #110445;
+    padding: 30px 0 30px;
+    color: white;
+    text-align: center;
+    padding: 150px 0 150px 0;
+    border: 2px solid black;
+    width: 110%;
+    margin-left: -10px;
 }
