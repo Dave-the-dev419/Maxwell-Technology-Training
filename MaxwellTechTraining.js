@@ -59,7 +59,7 @@ for (let index = 0; index < questions.length; index++) {
         const r = response[i];
         // const previous = choices[index - 1];
             if (choices[index].id === "longer") {
-                choice7.innerHTML +=  '<button class="choice2" onclick="selectMany(event);">' + r + '</button>';
+                choice7.innerHTML +=  '<button class="choice2" style="background-color:#a103039b" onclick="selectMany(event);">' + r + '</button>';
             }   
             else {
                 choices[index].innerHTML += '<button class="choice1" onclick="changeColor(event);">' + r + '</button>';
@@ -67,28 +67,13 @@ for (let index = 0; index < questions.length; index++) {
     }
 }
 
+var rewinButton = document.getElementById("queries");
 for (var index = 0; index < questions.length; index++) {
     if(choices[index].id !== "first") {
-        choices[index].innerHTML += '<a href="#" class="leftArrow" onclick="rewind();">back</a>';
+        choices[index].innerHTML += '<a href="#" class="leftArrow" onclick="onRewind();">back</a>';
     }
 }
 
-var navArrow = document.getElementsByClassName("leftArrow");
-var lastForm = document.getElementById("intro");
-function rewind() {
-    var i = 0;
-    if (i > 0) {
-        navArrow = choices[i - 1];
-    }
-}
-
-/*
-var i = 0;
-for (i; i < choices.length; i++) { 
-    if (choices[i] >= 1) {
-        navArrow.classList.add("visible");
-    }
-}*/
 var n = 0;
 function onSelection() {
     // Hides the introduction
@@ -105,13 +90,16 @@ function onSelection() {
 
     // Increment n
     n++;
-    
-    if (document.getElementById("final")) {
-        var finalbtn = document.getElementsByClassName("next");
-        console.log(finalbtn);
-    }
 }
 
+function onRewind() {
+    var appears = document.getElementsByClassName("choices");
+    appears[n-1].classList.remove('visible');
+
+    appears[n-2].classList.add('visible');
+    
+    n--;
+}
 
 function emailSent() {
     Email.send({
@@ -142,7 +130,10 @@ function changeColor(e) {
         // doesn't change color
         if (clicked  !== otherBtns){
             clicked.style.backgroundColor = "#fff";
-        }   
+            if (clicked[n].style.backgroundColor === rgb(255, 255, 255)) {
+                
+            }
+        }
     }
  //   }
 }
@@ -151,6 +142,11 @@ function changeColor(e) {
 // the user to select multiple buttons
 function selectMany(c) {
     var question7 = c.target;
-    console.log(question7);
-    question7.style.backgroundColor = "#fff";
+    console.log(question7.style.backgroundColor);
+    //
+    if (question7.style.backgroundColor != "rgb(255, 255, 255)") {
+         question7.style.backgroundColor = "#fff";
+    } else {
+        question7.style.backgroundColor = "#a103039b";
+    }
 }
