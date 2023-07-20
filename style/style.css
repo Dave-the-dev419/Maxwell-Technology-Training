@@ -69,10 +69,11 @@ input {
     background-color: #110445;
     color: white;
     padding: 10px;
-    margin: -40px;
+    margin:  115px -295px;
     font-weight: 600;
     font-size: 15px;
     text-align: center;
+    position: absolute;
 }
 
 .leftArrow:hover {
@@ -124,7 +125,6 @@ input {
 }
 
 .choice2 {
-    background:#a103039b;
     border: 1px solid;
     border-radius: 5px;
     text-align: left;
