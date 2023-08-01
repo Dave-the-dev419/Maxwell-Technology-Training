@@ -143,7 +143,7 @@ function changeColor(e) {
             clicked.style.backgroundColor = "#fff";
             var condition = document.getElementsByClassName("choices");
             
-            
+            // When a button is selected, it'll only make a certain set of question branches available
             if (clicked.style.backgroundColor === "rgb(255, 255, 255)") {
                 condition[1].classList.remove("visible");
             }
