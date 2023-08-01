@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell Cybersecurity</title>
+    <link href="style/style.css" rel="stylesheet">
+    <link href="MaxwellCybersecLogo.jpg" rel="icon">
+    <script src="MaxwellTechTraining.js"></script>
+</head>
+<body>
+<nav class="banner">
+    <div>
+        <img src="MaxwellCybersecLogo.jpg" width="95" height="80">
+    </div>
+</nav>
+<div id="queries" class="Queues">
+    <form id="questions">
+        <h1>Maxwell Cybersecurity Training</h1>
+        <p id="firstQuestion"></p>
+        <div class="choices" id="ifClick" onclick="return onSelection();">
+            <button id="btn1" class="choice1"></button>
+            <button id="btn2" class="choice1"></button>
+            <button id="btn3" class="choice1"></button>
+        </div>
+        <p id="secondQuestion"></p>
+        <div class="choices">
+            <button id="btn4" class="choice1"></button>
+            <button id="btn5" class="choice1"></button>
+        </div>
+        <p id="thirdQuestion"></p>
+        <div class="choices">
+            <button id="btn6" class="choice1"></button>
+            <button id="btn7" class="choice1"></button>
+        </div>
+        <p id="ninthQuestion"></p>
+        <div class="choices">
+            <button id="btn25" class="choice1"></button>
+            <button id="btn26" class="choice1"></button>
+            <button id="btn27" class="choice1"></button>
+        </div>
+        <p id="fourthQuestion"></p>
+        <div class="choices">
+            <button id="btn8" class="choice1"></button>
+            <button id="btn9" class="choice1"></button>
+            <button id="btn10" class="choice1"></button>
+            <button id="btn11" class="choice1"></button>
+            <button id="btn12" class="choice1"></button>
+        </div>
+        <p id="fifthQuestion"></p>
+        <div class="choices">
+            <button id="btn13" class="choice1"></button>
+            <button id="btn14" class="choice1"></button>
+        </div>
+        <p id="sixthQuestion"></p>
+        <div class="choices">
+            <button id="btn15" class="choice1"></button>
+            <button id="btn16" class="choice1"></button>
+            <button id="btn17" class="choice1"></button>
+            <button id="btn18" class="choice1"></button>
+            <button id="btn19" class="choice1"></button>
+            <button id="btn20" class="choice1"></button>
+            <button id="btn21" class="choice1"></button>
+        </div>
+        <p id="seventhQuestion"></p>
+        <div class="choices">
+            <button id="btn22" class="choice1"></button>
+            <button id="btn23" class="choice1"></button>
+            <button id="btn24" class="choice1"></button>
+        </div>
+        <p id="eightQuestion"></p>
+        <div class="choices">
+            <button id="btn28" class="choice1"></button>
+            <button id="btn29" class="choice1"></button>
+        </div>
+    </form>
+        <script>
+            var Questions = {
+    questionOne: {
+        question: "What are your Career Objectives?",
+        response: ["International Certification", "Job", "Expand my Knowledge"]
+    },
+    questionTwo: {
+        question: "Are you currently employed?",
+        response: ["Yes", "No"]
+    },
+    questionThree: {
+        question: "Do you have any short-term travel plans?",
+        response: ["Yes", "No"]
+    },
+    questionNine: {
+        question: "How long will said travel plans be?",
+        response: ["0-3 months", "3-12 months", "Above a year"]
+    },
+    questionFour: {
+        question: "What is your current level of formal education?",
+        response: ["O' level", "A' level", "Associate degree", "Undergraduate degree", "Postgraduate degree"]
+    },
+    questionFive: {
+        question: "Does your work schedule permit a rigid time allocation",
+        response: ["Yes", "No"]
+    },
+    questionSix: {
+        question: "What background or skills do you have in I.T? Select all that apply.",
+        response: ["Microsoft Office", "Design Suites Creative (Adobe, etc)", "Programming", "Digital marketing",
+                    "Data Science", "Hardware", "Cyber Security"]
+    },
+    questionSeven: {
+        question: "How many years of experience do you have in IT?",
+        response: ["1-5", "6-10", "10+"]
+    },
+    questionEight: {
+        question: "Do you have any relevant certifications?",
+        response: ["Yes", "No"]
+    }
+};
+
+            //Creates Questions
+            var q1 = document.getElementById("firstQuestion");
+            q1.innerHTML = Questions.questionOne.question;
+            
+            var q2 = document.getElementById("secondQuestion");
+            q2.innerHTML = Questions.questionTwo.question;
+            
+            var q3 = document.getElementById("thirdQuestion");
+            q3.innerHTML = Questions.questionThree.question;
+
+            var q9 = document.getElementById("ninthQuestion");
+            q9.innerHTML = Questions.questionNine.question;
+            
+            var q4 = document.getElementById("fourthQuestion");
+            q4.innerHTML = Questions.questionFour.question;
+            
+            var q5 = document.getElementById("fifthQuestion");
+            q5.innerHTML = Questions.questionFive.question;
+            
+            var q6 = document.getElementById("sixthQuestion");
+            q6.innerHTML = Questions.questionSix.question;
+
+            var q7 = document.getElementById("seventhQuestion");
+            q7.innerHTML = Questions.questionSeven.question;
+            
+            var q8 = document.getElementById("eightQuestion");
+            q8.innerHTML = Questions.questionEight.question;
+            
+            //Creates buttons
+            var somebtn = document.getElementById("btn1");
+            somebtn.innerHTML = Questions.questionOne.response[0];
+            var somebtn2 = document.getElementById("btn2");
+            somebtn2.innerHTML = Questions.questionOne.response[1];
+            var somebtn3 = document.getElementById("btn3");
+            somebtn3.innerHTML = Questions.questionOne.response[2];
+            
+            var somebtn4 = document.getElementById("btn4");
+            somebtn4.innerHTML = Questions.questionTwo.response[0];
+            var somebtn5 = document.getElementById("btn5");
+            somebtn5.innerHTML = Questions.questionTwo.response[1];
+           
+           var somebtn6 = document.getElementById("btn6");
+           somebtn6.innerHTML = Questions.questionThree.response[0];
+            var somebtn7 = document.getElementById("btn7");
+            somebtn7.innerHTML = Questions.questionThree.response[1];
+
+            var somebtn25 = document.getElementById("btn25");
+            somebtn25.innerHTML = Questions.questionNine.response[0];
+            var somebtn26 = document.getElementById("btn26");
+            somebtn26.innerHTML = Questions.questionNine.response[1];
+            var somebtn27 = document.getElementById("btn27");
+            somebtn27.innerHTML = Questions.questionNine.response[2];
+
+            var somebtn8 = document.getElementById("btn8");
+            somebtn8.innerHTML = Questions.questionFour.response[0];
+            var somebtn9 = document.getElementById("btn9");
+            somebtn9.innerHTML = Questions.questionFour.response[1];
+            var somebtn10 = document.getElementById("btn10");
+            somebtn10.innerHTML = Questions.questionFour.response[2];
+            var somebtn11 = document.getElementById("btn11");
+            somebtn11.innerHTML = Questions.questionFour.response[3];
+            var somebtn12 = document.getElementById("btn12");
+            somebtn12.innerHTML = Questions.questionFour.response[4];
+
+            var somebtn13 = document.getElementById("btn13");
+            somebtn13.innerHTML = Questions.questionFive.response[0];
+            var somebtn14 = document.getElementById("btn14");
+            somebtn14.innerHTML = Questions.questionFive.response[1];
+
+            var somebtn15 = document.getElementById("btn15");
+            somebtn15.innerHTML = Questions.questionSix.response[0];
+            var somebtn16 = document.getElementById("btn16");
+            somebtn16.innerHTML = Questions.questionSix.response[1];
+            var somebtn17 = document.getElementById("btn17");
+            somebtn17.innerHTML = Questions.questionSix.response[2];
+            var somebtn18 = document.getElementById("btn18");
+            somebtn18.innerHTML = Questions.questionSix.response[3];
+            var somebtn19 = document.getElementById("btn19");
+            somebtn19.innerHTML = Questions.questionSix.response[4];
+            var somebtn20 = document.getElementById("btn20");
+            somebtn20.innerHTML = Questions.questionSix.response[5];
+            var somebtn21 = document.getElementById("btn21");
+            somebtn21.innerHTML = Questions.questionSix.response[6];
+
+            var somebtn22 = document.getElementById("btn22");
+            somebtn22.innerHTML = Questions.questionSeven.response[0];
+            var somebtn23 = document.getElementById("btn23");
+            somebtn23.innerHTML = Questions.questionSeven.response[1];
+            var somebtn24 = document.getElementById("btn24");
+            somebtn24.innerHTML = Questions.questionSeven.response[0];
+
+            var somebtn28 = document.getElementById("btn28");
+            somebtn28.innerHTML = Questions.questionEight.response[0];
+            var somebtn29 = document.getElementById("btn29");
+            somebtn29.innerHTML = Questions.questionEight.response[1];
+
+            function onSelection() {
+                var chosenBtn = document.getElementById("question1");
+                var newColor = chosenBtn.getElementById("ifClick");
+                for (var i = 0; i < newColor.length; i++) {
+                    newColor[i].style.backgroundColor = "white";
+                    newColor[i].style.Color = "red";
+    }
+}
+        </script>
+    </form>
+</div>
+</body>
+</html>
